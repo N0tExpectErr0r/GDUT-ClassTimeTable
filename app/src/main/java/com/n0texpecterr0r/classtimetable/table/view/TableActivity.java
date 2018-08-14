@@ -15,6 +15,7 @@ import com.n0texpecterr0r.classtimetable.login.view.LoginActivity;
 import com.n0texpecterr0r.classtimetable.table.bean.Course;
 import com.n0texpecterr0r.classtimetable.table.presenter.TablePresenter;
 import com.n0texpecterr0r.classtimetable.table.presenter.TablePresenterImpl;
+import com.n0texpecterr0r.classtimetable.ui.CourseDialog;
 import com.n0texpecterr0r.classtimetable.ui.CourseTableView;
 import com.n0texpecterr0r.classtimetable.ui.CourseTableView.OnCourseClickListener;
 import com.n0texpecterr0r.classtimetable.ui.SwitchWeekDialog;
@@ -120,6 +121,6 @@ public class TableActivity extends AppCompatActivity implements TableView, OnCou
 
     @Override
     public void onCourseClick(Course course) {
-        ToastUtil.show(this, course.getName() + "@" + course.getClassroom());
+        new CourseDialog(this,course).show();
     }
 }

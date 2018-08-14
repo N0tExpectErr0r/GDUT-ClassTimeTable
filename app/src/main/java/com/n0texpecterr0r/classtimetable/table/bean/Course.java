@@ -2,6 +2,8 @@ package com.n0texpecterr0r.classtimetable.table.bean;
 
 import com.google.gson.annotations.SerializedName;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
@@ -62,6 +64,28 @@ public class Course {
     public int getEndNum(){
         List<String> sessionList = getSessionList();
         return Integer.valueOf(sessionList.get(sessionList.size()-1));
+    }
+
+    public String getStartWeek(){
+        List<String> weekList = getWeekList();
+        Collections.sort(weekList, new Comparator<String>() {
+            @Override
+            public int compare(String num1, String num2) {
+                return Integer.parseInt(num1)-Integer.parseInt(num2);
+            }
+        });
+        return weekList.get(0);
+    }
+
+    public String getEndWeek(){
+        List<String> weekList = getWeekList();
+        Collections.sort(weekList, new Comparator<String>() {
+            @Override
+            public int compare(String num1, String num2) {
+                return Integer.parseInt(num1)-Integer.parseInt(num2);
+            }
+        });
+        return weekList.get(weekList.size()-1);
     }
 
     public String getName() {

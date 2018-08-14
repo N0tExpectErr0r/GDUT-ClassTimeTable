@@ -2,10 +2,11 @@
 <resources>
     <color name="colorPrimary">#455A64</color>
     <color name="colorPrimaryDark">#263238</color>
-    <color name="colorAccent">#1976D2 </color>
+    <color name="colorAccent">#AA1976D2 </color>
 
     <color name="colorLine">#E7F0EE</color>
     <color name="colorGray">#E4E8E6</color>
+    <color name="colorWhite">#f0f0f0</color>
 
     <color name="course01">#AA6A7FDB</color>
     <color name="course02">#AA49BEAA</color>

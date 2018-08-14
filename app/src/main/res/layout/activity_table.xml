@@ -14,7 +14,7 @@
         app:popupTheme="@style/popup_theme"
         app:titleTextAppearance="@style/Toolbar.TitleText"
         app:subtitleTextAppearance="@style/Toolbar.SubTitleText"
-        app:title="GDUT课程表"/>
+        app:title="@string/app_name"/>
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"

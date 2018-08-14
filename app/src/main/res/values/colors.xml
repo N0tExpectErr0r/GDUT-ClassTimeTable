@@ -4,7 +4,8 @@
     <color name="colorPrimaryDark">#263238</color>
     <color name="colorAccent">#1976D2 </color>
 
-    <color name="colorLine">#ddd</color>
+    <color name="colorLine">#E7F0EE</color>
+    <color name="colorGray">#E4E8E6</color>
 
     <color name="course01">#6A7FDB</color>
     <color name="course02">#49BEAA</color>
@@ -13,7 +14,7 @@
     <color name="course05">#35A7FF</color>
     <color name="course06">#FF5964</color>
     <color name="course07">#587291</color>
-    <color name="course08">#0CF574</color>
+    <color name="course08">#1B4965</color>
     <color name="course09">#5D2E8C</color>
     <color name="course10">#2E4057</color>
     <color name="course11">#726DA8</color>

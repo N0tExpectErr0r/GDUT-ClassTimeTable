@@ -1,5 +1,6 @@
 package com.n0texpecterr0r.classtimetable.login.view;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,9 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 import com.n0texpecterr0r.classtimetable.R;
 import com.n0texpecterr0r.classtimetable.login.presenter.LoginPresenter;
 import com.n0texpecterr0r.classtimetable.login.presenter.LoginPresenterImpl;
@@ -21,7 +20,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     private EditText mEtUsername;
     private EditText mEtPassword;
     private CardView mBtnLogin;
-
+    private ProgressDialog mProgressDialog;
     private LoginPresenter mLoginPresenter;
 
     public static void actionStart(Context context){
@@ -42,6 +41,9 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         mBtnLogin.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                mProgressDialog = new ProgressDialog(LoginActivity.this);
+                mProgressDialog.setMessage("登录中");
+                mProgressDialog.show();
                 mLoginPresenter.login(mEtUsername.getText().toString(),
                         mEtPassword.getText().toString());
             }
@@ -52,6 +54,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     public void onSuccess(Map<String, String> cookies) {
         // 登录成功，拿到Cookie
         TableActivity.actionStart(this);
+        mProgressDialog.dismiss();
         finish();
     }
 
@@ -60,6 +63,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                mProgressDialog.dismiss();
                 ToastUtil.show(LoginActivity.this, "登录失败,请重试");
             }
         });

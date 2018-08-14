@@ -2,7 +2,6 @@ package com.n0texpecterr0r.classtimetable.ui;
 
 import static android.graphics.Color.rgb;
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
-import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -22,7 +21,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author Created by Nullptr
@@ -53,15 +51,15 @@ public class CourseTableView extends LinearLayout {
     // 线条宽度
     private final static int LINE_WIDTH = 2;
     // 数字部分宽度
-    private final static int NUM_WIDTH = 20;
+    private final static int NUM_WIDTH = 30;
     // 星期部分高度
-    private final static int WEEK_NAME_HEIGHT = 30;
+    private final static int WEEK_NAME_HEIGHT = 40;
     // 第一行的星期显示
     private LinearLayout mWeekLayout;
     // 课程显示
     private LinearLayout mCourseLayout;
     // 星期数组
-    private String[] mWeekNames = new String[]{"一", "二", "三", "四", "五", "六", "七"};
+    private String[] mWeekNames = new String[]{"周一", "周二", "周三", "周四", "周五", "周六", "周日"};
     // 数据源
     private List<Course> mCourseList = new ArrayList<>();
     // 颜色对应课程名数组
@@ -109,6 +107,7 @@ public class CourseTableView extends LinearLayout {
                 TextView tvTime = new TextView(getContext());
                 tvTime.setHeight(dpToPx(WEEK_NAME_HEIGHT));
                 tvTime.setWidth(dpToPx(NUM_WIDTH));
+                tvTime.setBackgroundResource(R.color.colorLine);
                 mWeekLayout.addView(tvTime);
 
                 // 1-MAXNUM个
@@ -124,10 +123,11 @@ public class CourseTableView extends LinearLayout {
                     tvNum.setTextColor(rgb(21, 21, 21));
                     tvNum.setHeight(dpToPx(COURSE_HEIGHT));
                     tvNum.setWidth(dpToPx(NUM_WIDTH));
-                    tvNum.setTextSize(14);
+                    tvNum.setTextSize(12);
                     tvNum.setText(j + "");
                     // 添加显示课程序号的view
                     llNum.addView(tvNum);
+                    llNum.setBackgroundResource(R.color.colorLine);
                     // 添加横线
                     llNum.addView(getHorizonalLine());
                 }
@@ -137,15 +137,15 @@ public class CourseTableView extends LinearLayout {
                 LinearLayout llTemp = new LinearLayout(getContext());
                 llTemp.setOrientation(VERTICAL);
                 TextView tvWeekName = new TextView(getContext());
-                tvWeekName.setTextColor(rgb(21, 21, 21));
-                tvWeekName.setTextSize(14);
+                tvWeekName.setTextColor(rgb(21,21,21));
                 // 计算每周的宽度
-                tvWeekName.setWidth((caculateViewWidth() - dpToPx(NUM_WIDTH)) / WEEKNUM);
+                tvWeekName.setWidth((caculateViewWidth() - dpToPx(NUM_WIDTH)-LINE_WIDTH*WEEKNUM) / WEEKNUM);
                 tvWeekName.setHeight(dpToPx(WEEK_NAME_HEIGHT));
                 tvWeekName.setGravity(Gravity.CENTER);
-                tvWeekName.setTextSize(16);
+                tvWeekName.setTextSize(12);
                 tvWeekName.setText(mWeekNames[i - 1]);
                 llTemp.addView(tvWeekName);
+                llTemp.setBackgroundResource(R.color.colorLine);
                 mWeekLayout.addView(llTemp);
                 // 显示日期
                 List<Course> weekCourseList = new ArrayList<>();
@@ -159,7 +159,7 @@ public class CourseTableView extends LinearLayout {
                 LinearLayout llCourse = getCourseLayout(weekCourseList, i);
                 llCourse.setOrientation(VERTICAL);
                 ViewGroup.LayoutParams layoutParams = new
-                        ViewGroup.LayoutParams((caculateViewWidth() - dpToPx(NUM_WIDTH)) / WEEKNUM, MATCH_PARENT);
+                        ViewGroup.LayoutParams((caculateViewWidth() - dpToPx(NUM_WIDTH)-LINE_WIDTH*WEEKNUM) / WEEKNUM, MATCH_PARENT);
                 llCourse.setLayoutParams(layoutParams);
                 llCourse.setWeightSum(1);
                 mCourseLayout.addView(llCourse);
@@ -255,20 +255,21 @@ public class CourseTableView extends LinearLayout {
         TextView tvCourseName = new TextView(getContext());
         int num = course.getEndNum() - course.getStartNum();
         tvCourseName.setHeight(dpToPx((num + 1) * COURSE_HEIGHT) + num * 2);
-        tvCourseName.setTextColor(0xffffffff);
         tvCourseName.setWidth(dpToPx(40));
         tvCourseName.setTextSize(12);
         tvCourseName.setGravity(Gravity.CENTER);
         tvCourseName.setText(course.getName() + "@" + course.getClassroom());
         if (mCurrentWeek == 0 || course.getWeekList().contains(mCurrentWeek + "")) {
             // 如果全部选择或者该课包含当前星期
+            tvCourseName.setTextColor(0xFFFFFFFF);
             courseView.setCardBackgroundColor(getResources().getColor(colors[getColorNum(course.getName())]));
         } else {
             // 否则置为灰色
-            courseView.setCardBackgroundColor(getResources().getColor(R.color.colorLine));
+            tvCourseName.setTextColor(0xFFAFB2B1);
+            courseView.setCardBackgroundColor(getResources().getColor(R.color.colorGray));
         }
         courseView.addView(tvCourseName);
-        courseView.setRadius(dpToPx(3));
+        courseView.setRadius(dpToPx(5));
         if (VERSION.SDK_INT >= 21) {
             courseView.setElevation(0f);
         }

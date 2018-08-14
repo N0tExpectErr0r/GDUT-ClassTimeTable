@@ -7,25 +7,24 @@
     <color name="colorLine">#E7F0EE</color>
     <color name="colorGray">#E4E8E6</color>
 
-    <color name="course01">#6A7FDB</color>
-    <color name="course02">#49BEAA</color>
-    <color name="course03">#E0598B</color>
-    <color name="course04">#FBB13C</color>
-    <color name="course05">#35A7FF</color>
-    <color name="course06">#FF5964</color>
-    <color name="course07">#587291</color>
-    <color name="course08">#1B4965</color>
-    <color name="course09">#5D2E8C</color>
-    <color name="course10">#2E4057</color>
-    <color name="course11">#726DA8</color>
-    <color name="course12">#C0B298</color>
-    <color name="course13">#A4778B</color>
-    <color name="course14">#D4BEBE</color>
-    <color name="course15">#212121</color>
-    <color name="course16">#F564A9</color>
-    <color name="course17">#2374AB</color>
-    <color name="course18">#D63230</color>
-    <color name="course19">#CEC2FF</color>
-    <color name="course20">#AED4E6</color>
-
+    <color name="course01">#AA6A7FDB</color>
+    <color name="course02">#AA49BEAA</color>
+    <color name="course03">#AAE0598B</color>
+    <color name="course04">#AAFBB13C</color>
+    <color name="course05">#AA35A7FF</color>
+    <color name="course06">#AAFF5964</color>
+    <color name="course07">#AA587291</color>
+    <color name="course08">#AA1B4965</color>
+    <color name="course09">#AA5D2E8C</color>
+    <color name="course10">#AA2E4057</color>
+    <color name="course11">#AA726DA8</color>
+    <color name="course12">#AAC0B298</color>
+    <color name="course13">#AAA4778B</color>
+    <color name="course14">#AAD4BEBE</color>
+    <color name="course15">#AA212121</color>
+    <color name="course16">#AAF564A9</color>
+    <color name="course17">#AA2374AB</color>
+    <color name="course18">#AAD63230</color>
+    <color name="course19">#AACEC2FF</color>
+    <color name="course20">#AAAED4E6</color>
 </resources>

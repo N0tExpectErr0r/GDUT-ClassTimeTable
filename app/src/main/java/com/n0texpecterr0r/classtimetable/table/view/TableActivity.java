@@ -49,7 +49,7 @@ public class TableActivity extends AppCompatActivity implements TableView, OnCou
         mCookies = (Map<String, String>) cookiePref.getAll();
         // 初始化Toolbar
         setSupportActionBar(mTbTitle);
-        mTbTitle.setTitle("第"+mCurrentWeek+"周");
+        mTbTitle.setSubtitle("第"+mCurrentWeek+"周");
         // 加载数据
         mTablePresenter = new TablePresenterImpl(this, mCookies);
         mTablePresenter.getTableData("201801");
@@ -80,7 +80,7 @@ public class TableActivity extends AppCompatActivity implements TableView, OnCou
                     public void onChoose(int position) {
                         mCtvTable.setCurrentWeek(position+1);
                         mCurrentWeek = position+1;
-                        mTbTitle.setTitle("第"+mCurrentWeek+"周");
+                        mTbTitle.setSubtitle("第"+mCurrentWeek+"周");
                         dialog.dismiss();
                     }
                 });

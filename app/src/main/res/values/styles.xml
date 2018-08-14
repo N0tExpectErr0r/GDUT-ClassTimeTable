@@ -15,4 +15,11 @@
         <!--设置不覆盖锚点-->
         <item name="overlapAnchor">false</item>
     </style>
+
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="Toolbar.SubTitleText" parent="Base.TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
+        <item name="android:textSize">12sp</item>
+    </style>
 </resources>

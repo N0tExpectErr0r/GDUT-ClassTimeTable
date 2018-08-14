@@ -42,11 +42,13 @@ public class SwitchWeekDialog extends AlertDialog.Builder {
         mChooseListener = chooseListener;
     }
 
-    /**
-     * 选中接口
-     */
+
     public interface OnChooseListener {
 
+        /**
+         * 选中监听
+         * @param position 选中的position
+         */
         void onChoose(int position);
     }
 }

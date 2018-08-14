@@ -1,8 +1,8 @@
 package com.n0texpecterr0r.classtimetable.ui;
 
 import static android.graphics.Color.rgb;
-import static android.view.ViewGroup.LayoutParams.FILL_PARENT;
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
+import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Created by Nullptr
@@ -94,7 +95,7 @@ public class CourseTableView extends LinearLayout {
     /**
      * 绘制界面
      */
-    private void drawView() {
+    private void drawTable() {
         setOrientation(VERTICAL);
         mWeekLayout = new LinearLayout(getContext());
         mWeekLayout.setOrientation(HORIZONTAL);
@@ -158,7 +159,7 @@ public class CourseTableView extends LinearLayout {
                 LinearLayout llCourse = getCourseLayout(weekCourseList, i);
                 llCourse.setOrientation(VERTICAL);
                 ViewGroup.LayoutParams layoutParams = new
-                        ViewGroup.LayoutParams((caculateViewWidth() - dpToPx(NUM_WIDTH)) / WEEKNUM, FILL_PARENT);
+                        ViewGroup.LayoutParams((caculateViewWidth() - dpToPx(NUM_WIDTH)) / WEEKNUM, MATCH_PARENT);
                 llCourse.setLayoutParams(layoutParams);
                 llCourse.setWeightSum(1);
                 mCourseLayout.addView(llCourse);
@@ -302,7 +303,7 @@ public class CourseTableView extends LinearLayout {
             getColorName(course.getName());
         }
         removeAllViews();
-        drawView();
+        drawTable();
         invalidate();
     }
 
@@ -314,7 +315,7 @@ public class CourseTableView extends LinearLayout {
     public void setCurrentWeek(int currentWeek) {
         mCurrentWeek = currentWeek;
         removeAllViews();
-        drawView();
+        drawTable();
         invalidate();
     }
 
